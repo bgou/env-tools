@@ -1,0 +1,53 @@
+[hub]
+  protocol = https
+[credential]
+  helper = cache --timeout=3600
+[core]
+  editor = vim
+  excludesfile = ~/.global_gitignore
+[push]
+  default = current
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+[alias]
+
+# Shortcuts
+  a   = add
+  aa   = add --all :/
+  co   = checkout
+  d    = diff
+  dc   = diff --cached
+  ds   = diff --staged
+  dw   = diff --color-words
+  po   = push origin head
+  s    = status
+  sm   = submodule
+  smu  = submodule foreach git pull origin master
+  push = push -u
+  co = checkout
+  br = branch
+  b = branch
+  ci = commit
+  cim = commit -m
+  ciam = commit -am
+  st = status
+  unstage = reset HEAD --
+  last = log -1 HEAD
+
+# Better logs
+  l = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lgall = log --graph --all --oneline --decorate
+
+# Quick actions
+## Add everything and commits as SAVE
+  save = !git add -A && git commit -m 'SAVE'
+## Add only tracked changes and commits as WIP
+  wip = commit -am "WIP"
+## Reset the index but keeps working tree
+  undo = reset HEAD~1 --mixed
